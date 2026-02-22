@@ -1,0 +1,78 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{5E411A92-573A-47AB-BC2E-E24C6D6CD8A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{BDF68DB9-0331-47CF-AAAA-64673BA1CDC7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Application", "3 - Application", "{C28707FA-2C27-4118-B114-F4F72F5F28DD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infraestructure", "4 - Infraestructure", "{1F105AAB-70DF-482E-8CB3-9E33D686EBAC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - Security", "4.2 - Security", "{A3EDAE72-F482-4E81-A48A-80B0C8D68E11}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", "{C260A1FD-1BA3-44CD-8B00-5BA952D2A9BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackathonDataAnalysis.Api", "src\HackathonDataAnalysis.Api\HackathonDataAnalysis.Api.csproj", "{D142A1A6-D118-4556-8850-8F352410A282}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackathonDataAnalysis.Security", "src\HackathonDataAnalysis.Security\HackathonDataAnalysis.Security.csproj", "{DD4CB017-C51A-4B6E-9EB9-F8778DB621D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackathonDataAnalysis.Domain", "src\HackathonDataAnalysis.Domain\HackathonDataAnalysis.Domain.csproj", "{383E13F6-F561-4832-9F81-4B111D135A3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackathonDataAnalysis.Application", "src\HackathonDataAnalysis.Application\HackathonDataAnalysis.Application.csproj", "{F2339BB2-1CE1-4A6C-BC60-EFF6D4529E07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackathonDataAnalysis.Data", "src\HackathonDataAnalysis.Data\HackathonDataAnalysis.Data.csproj", "{3D091BEC-10F9-44EF-9452-91D2E1B224FF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.3 - CrossCutting", "4.3 - CrossCutting", "{AEFA9F78-8DCA-4F11-B6CC-2C686B593D5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackathonDataAnalysis.Auth", "src\HackathonDataAnalysis.Auth\HackathonDataAnalysis.Auth.csproj", "{4704659A-2136-410F-A7CB-91748F032400}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackathonDataAnalysis.Plots", "src\HackathonDataAnalysis.Plots\HackathonDataAnalysis.Plots.csproj", "{100AF1CD-2448-4518-B11C-975DE8E578EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A3EDAE72-F482-4E81-A48A-80B0C8D68E11} = {1F105AAB-70DF-482E-8CB3-9E33D686EBAC}
+		{C260A1FD-1BA3-44CD-8B00-5BA952D2A9BD} = {1F105AAB-70DF-482E-8CB3-9E33D686EBAC}
+		{D142A1A6-D118-4556-8850-8F352410A282} = {5E411A92-573A-47AB-BC2E-E24C6D6CD8A8}
+		{DD4CB017-C51A-4B6E-9EB9-F8778DB621D4} = {A3EDAE72-F482-4E81-A48A-80B0C8D68E11}
+		{383E13F6-F561-4832-9F81-4B111D135A3C} = {BDF68DB9-0331-47CF-AAAA-64673BA1CDC7}
+		{F2339BB2-1CE1-4A6C-BC60-EFF6D4529E07} = {C28707FA-2C27-4118-B114-F4F72F5F28DD}
+		{3D091BEC-10F9-44EF-9452-91D2E1B224FF} = {C260A1FD-1BA3-44CD-8B00-5BA952D2A9BD}
+		{AEFA9F78-8DCA-4F11-B6CC-2C686B593D5F} = {1F105AAB-70DF-482E-8CB3-9E33D686EBAC}
+		{4704659A-2136-410F-A7CB-91748F032400} = {AEFA9F78-8DCA-4F11-B6CC-2C686B593D5F}
+		{100AF1CD-2448-4518-B11C-975DE8E578EC} = {AEFA9F78-8DCA-4F11-B6CC-2C686B593D5F}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D142A1A6-D118-4556-8850-8F352410A282}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D142A1A6-D118-4556-8850-8F352410A282}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D142A1A6-D118-4556-8850-8F352410A282}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D142A1A6-D118-4556-8850-8F352410A282}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD4CB017-C51A-4B6E-9EB9-F8778DB621D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD4CB017-C51A-4B6E-9EB9-F8778DB621D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD4CB017-C51A-4B6E-9EB9-F8778DB621D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD4CB017-C51A-4B6E-9EB9-F8778DB621D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{383E13F6-F561-4832-9F81-4B111D135A3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{383E13F6-F561-4832-9F81-4B111D135A3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{383E13F6-F561-4832-9F81-4B111D135A3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{383E13F6-F561-4832-9F81-4B111D135A3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2339BB2-1CE1-4A6C-BC60-EFF6D4529E07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2339BB2-1CE1-4A6C-BC60-EFF6D4529E07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2339BB2-1CE1-4A6C-BC60-EFF6D4529E07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2339BB2-1CE1-4A6C-BC60-EFF6D4529E07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D091BEC-10F9-44EF-9452-91D2E1B224FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D091BEC-10F9-44EF-9452-91D2E1B224FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D091BEC-10F9-44EF-9452-91D2E1B224FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D091BEC-10F9-44EF-9452-91D2E1B224FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4704659A-2136-410F-A7CB-91748F032400}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4704659A-2136-410F-A7CB-91748F032400}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4704659A-2136-410F-A7CB-91748F032400}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4704659A-2136-410F-A7CB-91748F032400}.Release|Any CPU.Build.0 = Release|Any CPU
+		{100AF1CD-2448-4518-B11C-975DE8E578EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{100AF1CD-2448-4518-B11C-975DE8E578EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{100AF1CD-2448-4518-B11C-975DE8E578EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{100AF1CD-2448-4518-B11C-975DE8E578EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

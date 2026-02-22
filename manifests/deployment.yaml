@@ -1,0 +1,84 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dataanalysis-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dataanalysis
+  template:
+    metadata:
+      labels:
+        app: dataanalysis
+    spec:
+      containers:
+        - name: dataanalysis-container
+          image: acr96.azurecr.io/dataanalysis:latest
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "50m"
+            limits:
+              memory: "256Mi"
+              cpu: "150m"
+          env:
+            - name: RabbitMQ__HostName
+              value: "rabbitmq.messaging.svc.cluster.local"
+            - name: RabbitMQ__QueueName
+              value: "payments"
+            - name: Jwt__Issuer
+              valueFrom:
+                configMapKeyRef:
+                  name: dataanalysis-config
+                  key: JWT_ISSUER
+            - name: Jwt__Audience
+              valueFrom:
+                configMapKeyRef:
+                  name: dataanalysis-config
+                  key: JWT_AUDIENCE
+            - name: ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: dataanalysis-config
+                  key: ENVIRONMENT
+
+            - name: ConnectionStrings__TechDb
+              valueFrom:
+                secretKeyRef:
+                  name: dataanalysis-secrets
+                  key: connectionstring
+            - name: Jwt__Key
+              valueFrom:
+                secretKeyRef:
+                  name: dataanalysis-secrets
+                  key: jwtkey
+            - name: ElasticSettings__ApiKey
+              valueFrom:
+                secretKeyRef:
+                  name: dataanalysis-secrets
+                  key: elasticapikey
+            - name: ElasticSettings__CloudId
+              valueFrom:
+                secretKeyRef:
+                  name: dataanalysis-secrets
+                  key: elasticcloudid
+            - name: NEW_RELIC_LICENSE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: dataanalysis-secrets
+                  key: newrelickey
+            - name: RabbitMQ__UserName
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-secrets
+                  key: username
+            - name: RabbitMQ__Password
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-secrets
+                  key: password
+      imagePullSecrets:
+        - name: credentials

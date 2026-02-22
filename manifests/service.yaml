@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dataanalysis-service
+  labels:
+    app: dataanalysis-service
+spec:
+  selector:
+    app: dataanalysis
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: ClusterIP

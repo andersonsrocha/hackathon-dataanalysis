@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\HackathonDataAnalysis.Auth\HackathonDataAnalysis.Auth.csproj" />
+      <ProjectReference Include="..\HackathonDataAnalysis.Domain\HackathonDataAnalysis.Domain.csproj" />
+    </ItemGroup>
+
+</Project>
