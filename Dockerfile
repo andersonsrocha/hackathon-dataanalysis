@@ -8,6 +8,9 @@ COPY src/HackathonDataAnalysis.Application/HackathonDataAnalysis.Application.csp
 COPY src/HackathonDataAnalysis.Data/HackathonDataAnalysis.Data.csproj src/HackathonDataAnalysis.Data/
 COPY src/HackathonDataAnalysis.Domain/HackathonDataAnalysis.Domain.csproj src/HackathonDataAnalysis.Domain/
 COPY src/HackathonDataAnalysis.Security/HackathonDataAnalysis.Security.csproj src/HackathonDataAnalysis.Security/
+COPY src/HackathonDataAnalysis.Auth/HackathonDataAnalysis.Auth.csproj src/HackathonDataAnalysis.Auth/
+COPY src/HackathonDataAnalysis.NewRelicEvent/HackathonDataAnalysis.NewRelicEvent.csproj src/HackathonDataAnalysis.NewRelicEvent/
+COPY src/HackathonDataAnalysis.Plots/HackathonDataAnalysis.Plots.csproj src/HackathonDataAnalysis.Plots/
 
 # Copiar arquivos
 COPY src/ src/
