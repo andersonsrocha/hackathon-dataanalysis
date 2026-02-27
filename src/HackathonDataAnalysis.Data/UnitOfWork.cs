@@ -2,8 +2,18 @@
 
 namespace HackathonDataAnalysis.Data;
 
-public sealed class UnitOfWork(HackathonDataAnalysisContext context) : IUnitOfWork
+public sealed class UnitOfWork(HackathonDataAnalysisMongoContext mongoContext, HackathonDataAnalysisSqlContext sqlContext) : IUnitOfWork
 {
     public async Task<bool> CommitAsync(CancellationToken cancellationToken)
-        => await context.SaveChangesAsync(cancellationToken) > 0;
+    {
+        var tasks = new List<Task<int>>();
+
+        if (mongoContext.ChangeTracker.HasChanges())
+            tasks.Add(mongoContext.SaveChangesAsync(cancellationToken));
+
+        if (sqlContext.ChangeTracker.HasChanges())
+            tasks.Add(sqlContext.SaveChangesAsync(cancellationToken));
+
+        return (await Task.WhenAll(tasks)).All(t => t > 0);
+    }
 }

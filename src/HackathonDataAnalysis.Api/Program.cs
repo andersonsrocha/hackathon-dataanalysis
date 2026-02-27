@@ -3,8 +3,8 @@ using HackathonDataAnalysis.Application;
 using HackathonDataAnalysis.Data;
 using HackathonDataAnalysis.Security;
 using HackathonDataAnalysis.Api.Middlewares;
-using HackathonDataAnalysis.Application.Readings.Handlers;
 using HackathonDataAnalysis.Auth;
+using HackathonDataAnalysis.NewRelicEvent;
 using HackathonDataAnalysis.Plots;
 using Scalar.AspNetCore;
 
@@ -16,7 +16,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwagger();
 
 #region [Database]
-builder.Services.AddMongoContext(builder.Configuration);
+builder.Services.AddMongoClient(builder.Configuration);
+builder.Services.AddMongoContext();
+builder.Services.AddSqlContext(builder.Configuration);
 builder.Services.AddRepositories();
 #endregion
 
@@ -37,12 +39,14 @@ builder.AddSerilog();
 #endregion
 
 #region [RabbitMQ]
-builder.Services.AddHostedService<CreateReadingQueue>();
+builder.Services.AddHostedService<ReadingQueue>();
+builder.Services.AddScoped<IRabbitMqPublisher, RabbitMqPublisher>();
 #endregion
 
 #region [Services]
 builder.Services.AddAuthService(builder.Configuration);
 builder.Services.AddPlotService(builder.Configuration);
+builder.Services.AddNewRelicEventPublisher(builder.Configuration);
 #endregion
 
 var app = builder.Build();

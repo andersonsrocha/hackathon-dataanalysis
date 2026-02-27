@@ -45,7 +45,7 @@ spec:
                   name: dataanalysis-config
                   key: ENVIRONMENT
 
-            - name: ConnectionStrings__TechDb
+            - name: ConnectionStrings__SqlConnection
               valueFrom:
                 secretKeyRef:
                   name: dataanalysis-secrets
@@ -55,16 +55,6 @@ spec:
                 secretKeyRef:
                   name: dataanalysis-secrets
                   key: jwtkey
-            - name: ElasticSettings__ApiKey
-              valueFrom:
-                secretKeyRef:
-                  name: dataanalysis-secrets
-                  key: elasticapikey
-            - name: ElasticSettings__CloudId
-              valueFrom:
-                secretKeyRef:
-                  name: dataanalysis-secrets
-                  key: elasticcloudid
             - name: NEW_RELIC_LICENSE_KEY
               valueFrom:
                 secretKeyRef:

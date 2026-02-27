@@ -25,6 +25,22 @@ public class ReadingsController(ILogger<ReadingsController> logger, IMediator me
     public async Task<IActionResult> Get()
         => await Send(mediator.Send(new GetAllRequest()));
     
+    [HttpGet]
+    [Authorize("Admin")]
+    [Route("Plot/{plotId:Guid}")]
+    [ProducesResponseType(typeof(ReadingDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GetByPlot(Guid plotId)
+        => await Send(mediator.Send(new GetByPlotRequest(plotId)));
+    
+    [HttpGet]
+    [Authorize("Admin")]
+    [Route("Plot/{plotId:Guid}/Since/{since:DateTime}")]
+    [ProducesResponseType(typeof(ReadingDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GetByPlotAndSince(Guid plotId, DateTime since)
+        => await Send(mediator.Send(new GetByPlotAndSinceRequest(plotId, since)));
+    
     [HttpPost]
     [Authorize("Admin")]
     [ProducesResponseType(StatusCodes.Status201Created)]

@@ -5,6 +5,7 @@ using HackathonDataAnalysis.Application.Readings.Commands;
 using HackathonDataAnalysis.Application.Readings.Handlers;
 using MediatR;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
@@ -13,12 +14,12 @@ using RabbitMQ.Client.Exceptions;
 
 namespace HackathonDataAnalysis.Application;
 
-public class CreateReadingQueue(IConfiguration configuration, IMediator mediator, ILogger<CreateReadingHandler> logger) : BackgroundService
+public class ReadingQueue(IConfiguration configuration, IServiceProvider serviceProvider, ILogger<CreateReadingHandler> logger) : BackgroundService
 {
     private readonly string _hostName = configuration["RabbitMQ:HostName"] ?? "localhost";
     private readonly string _userName = configuration["RabbitMQ:UserName"] ?? "admin";
     private readonly string _password = configuration["RabbitMQ:Password"] ?? "";
-    private readonly string _queueName = configuration["RabbitMQ:QueueName"] ?? "alert.queue";
+    private readonly string _queueName = configuration["RabbitMQ:QueueName"] ?? "sensor.readings";
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
@@ -77,6 +78,7 @@ public class CreateReadingQueue(IConfiguration configuration, IMediator mediator
                             
                             logger.LogInformation("Received message: {Message} (DeliveryTag: {DeliveryTag})", message, ea.DeliveryTag);
                             
+                            using var scope = serviceProvider.CreateScope();
                             var request = JsonSerializer.Deserialize<CreateReadingRequest>(message);
                             if (request is null)
                             {
@@ -84,6 +86,7 @@ public class CreateReadingQueue(IConfiguration configuration, IMediator mediator
                                 return;
                             }
                             
+                            var mediator = scope.ServiceProvider.GetRequiredService<IMediator>();
                             var response = await mediator.Send(request, stoppingToken);
                             if (response.IsSuccess)
                                 logger.LogInformation("Reading processed successfully for ReadingId: {ReadingId}", response.Value);

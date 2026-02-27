@@ -8,7 +8,7 @@ public static class SwaggerExtension
     {
         services.AddSwaggerGen(options =>
         {
-            options.SwaggerDoc("v1", new OpenApiInfo { Title = "HackathonProperties API", Version = "v1" });
+            options.SwaggerDoc("v1", new OpenApiInfo { Title = "HackathonDataAnalysis API", Version = "v1" });
             options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
             {
                 Name = "Authorization",

@@ -4,7 +4,7 @@ using HackathonDataAnalysis.Domain.Models;
 
 namespace HackathonDataAnalysis.Data.Repositories;
 
-public abstract class Repository<TEntity>(HackathonDataAnalysisContext context) : IRepository<TEntity> where TEntity : Entity
+public abstract class Repository<TEntity>(DbContext context) : IRepository<TEntity> where TEntity : Entity
 {
     protected readonly DbSet<TEntity> _dbSet = context.Set<TEntity>();
     

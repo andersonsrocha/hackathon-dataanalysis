@@ -10,6 +10,11 @@ namespace HackathonDataAnalysis.Data;
 
 public static class ContextExtension
 {
+    public static void AddMongoClient(this IServiceCollection services, IConfiguration configuration)
+    {
+        var mongoClient = new MongoClient(configuration.GetConnectionString("MongoConnection") ?? throw new InvalidOperationException("MongoConnection string is not configured."));
+        services.AddSingleton<IMongoClient>(mongoClient);
+    }
     public static void AddRepositories(this IServiceCollection services)
     {
         services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -21,12 +26,13 @@ public static class ContextExtension
             .WithScopedLifetime());
     }
 
-    public static void AddMongoContext(this IServiceCollection services, IConfiguration configuration)
+    public static void AddMongoContext(this IServiceCollection services)
     {
-        services.AddDbContext<HackathonDataAnalysisContext>(options =>
-        {
-            var mongoClient = new MongoClient((string)configuration.GetConnectionString("MongoConnection"));
-            options.UseMongoDB(mongoClient, "Hackathon");
-        });
+        services.AddDbContext<HackathonDataAnalysisMongoContext>((sp, options) => options.UseMongoDB(sp.GetRequiredService<IMongoClient>(), "hackathon"));
+    }
+    
+    public static void AddSqlContext(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddDbContext<HackathonDataAnalysisSqlContext>(options => options.UseSqlServer(configuration.GetConnectionString("SQLConnection")) );
     }
 }

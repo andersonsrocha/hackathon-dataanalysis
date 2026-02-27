@@ -25,6 +25,7 @@
       <ProjectReference Include="..\HackathonDataAnalysis.Application\HackathonDataAnalysis.Application.csproj" />
       <ProjectReference Include="..\HackathonDataAnalysis.Data\HackathonDataAnalysis.Data.csproj" />
       <ProjectReference Include="..\HackathonDataAnalysis.Domain\HackathonDataAnalysis.Domain.csproj" />
+      <ProjectReference Include="..\HackathonDataAnalysis.NewRelicEvent\HackathonDataAnalysis.NewRelicEvent.csproj" />
       <ProjectReference Include="..\HackathonDataAnalysis.Security\HackathonDataAnalysis.Security.csproj" />
     </ItemGroup>
 

@@ -6,7 +6,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Application", "3 - Application", "{C28707FA-2C27-4118-B114-F4F72F5F28DD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infraestructure", "4 - Infraestructure", "{1F105AAB-70DF-482E-8CB3-9E33D686EBAC}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{1F105AAB-70DF-482E-8CB3-9E33D686EBAC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - Security", "4.2 - Security", "{A3EDAE72-F482-4E81-A48A-80B0C8D68E11}"
 EndProject
@@ -28,6 +28,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackathonDataAnalysis.Auth"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackathonDataAnalysis.Plots", "src\HackathonDataAnalysis.Plots\HackathonDataAnalysis.Plots.csproj", "{100AF1CD-2448-4518-B11C-975DE8E578EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackathonDataAnalysis.NewRelicEvent", "src\HackathonDataAnalysis.NewRelicEvent\HackathonDataAnalysis.NewRelicEvent.csproj", "{4505592F-4CA8-48F5-A89E-CD4BFA6CDFE2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Test", "5 - Test", "{4131E63E-738A-4F1E-8287-AB9DE3AC95EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackathonDataAnalysis.Application.Test", "tests\HackathonDataAnalysis.Application.Test\HackathonDataAnalysis.Application.Test.csproj", "{93281FBC-C59F-4215-B7A3-44CD5F1C353A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +50,8 @@ Global
 		{AEFA9F78-8DCA-4F11-B6CC-2C686B593D5F} = {1F105AAB-70DF-482E-8CB3-9E33D686EBAC}
 		{4704659A-2136-410F-A7CB-91748F032400} = {AEFA9F78-8DCA-4F11-B6CC-2C686B593D5F}
 		{100AF1CD-2448-4518-B11C-975DE8E578EC} = {AEFA9F78-8DCA-4F11-B6CC-2C686B593D5F}
+		{4505592F-4CA8-48F5-A89E-CD4BFA6CDFE2} = {AEFA9F78-8DCA-4F11-B6CC-2C686B593D5F}
+		{93281FBC-C59F-4215-B7A3-44CD5F1C353A} = {4131E63E-738A-4F1E-8287-AB9DE3AC95EF}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{D142A1A6-D118-4556-8850-8F352410A282}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -74,5 +82,13 @@ Global
 		{100AF1CD-2448-4518-B11C-975DE8E578EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{100AF1CD-2448-4518-B11C-975DE8E578EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{100AF1CD-2448-4518-B11C-975DE8E578EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4505592F-4CA8-48F5-A89E-CD4BFA6CDFE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4505592F-4CA8-48F5-A89E-CD4BFA6CDFE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4505592F-4CA8-48F5-A89E-CD4BFA6CDFE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4505592F-4CA8-48F5-A89E-CD4BFA6CDFE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93281FBC-C59F-4215-B7A3-44CD5F1C353A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93281FBC-C59F-4215-B7A3-44CD5F1C353A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93281FBC-C59F-4215-B7A3-44CD5F1C353A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93281FBC-C59F-4215-B7A3-44CD5F1C353A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -4,9 +4,10 @@ public sealed class Reading : Entity
 {
     public Reading() { }
 
-    public Reading(Guid plotId, DateTime date, double soilMoisture, double temperature, double precipitation)
+    public Reading(Guid plotId, string plotName, DateTime date, double soilMoisture, double temperature, double precipitation)
     {
         PlotId = plotId;
+        PlotName = plotName;
         Date = date;
         SoilMoisture = soilMoisture;
         Temperature = temperature;
@@ -14,6 +15,7 @@ public sealed class Reading : Entity
     }
 
     public Guid PlotId { get; set; } = Guid.Empty;
+    public string PlotName { get; set; } = string.Empty;
     public DateTime Date { get; set; } = DateTime.Now;
     public double SoilMoisture { get; set; } = 0.0;
     public double Temperature { get; set; } = 0.0;
