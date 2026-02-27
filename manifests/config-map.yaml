@@ -7,6 +7,6 @@ data:
   JWT_AUDIENCE: https://localhost:7054/
   CLIENT_ID: d14d0ade-639b-46a6-800e-288a3c78cce8
   AUTHORITY: http://user-service/api/auth
-  PLOT_ENDPOINT: http://plot-service/api/plots
+  PLOT_ENDPOINT: http://property-service/api/plots
   NEW_RELIC_BASE_URL: https://insights-collector.newrelic.com/v1/accounts
   ENVIRONMENT: Production
