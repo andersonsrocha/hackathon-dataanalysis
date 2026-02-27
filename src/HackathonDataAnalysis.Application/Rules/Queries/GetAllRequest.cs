@@ -4,4 +4,4 @@ using OperationResult;
 
 namespace HackathonDataAnalysis.Application.Rules.Queries;
 
-public sealed class GetAllRequest : IRequest<Result<IEnumerable<ReadingDto>>>;
+public sealed class GetAllRequest : IRequest<Result<IEnumerable<RuleDto>>>;

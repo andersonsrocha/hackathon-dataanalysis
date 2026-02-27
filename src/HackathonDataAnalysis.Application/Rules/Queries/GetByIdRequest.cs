@@ -4,7 +4,7 @@ using OperationResult;
 
 namespace HackathonDataAnalysis.Application.Rules.Queries;
 
-public sealed class GetByIdRequest(Guid id) : IRequest<Result<ReadingDto>>
+public sealed class GetByIdRequest(Guid id) : IRequest<Result<RuleDto>>
 {
     public Guid Id { get; init; } = id;
 }
