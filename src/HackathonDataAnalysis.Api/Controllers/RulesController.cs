@@ -1,4 +1,4 @@
-﻿using HackathonDataAnalysis.Application.Readings.Queries;
+﻿using HackathonDataAnalysis.Application.Rules.Queries;
 using HackathonDataAnalysis.Application.Rules.Commands;
 using HackathonDataAnalysis.Domain.Dto;
 using MediatR;
