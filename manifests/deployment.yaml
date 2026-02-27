@@ -27,8 +27,6 @@ spec:
           env:
             - name: RabbitMQ__HostName
               value: "rabbitmq.messaging.svc.cluster.local"
-            - name: RabbitMQ__QueueName
-              value: "payments"
             - name: Jwt__Issuer
               valueFrom:
                 configMapKeyRef:
@@ -39,17 +37,37 @@ spec:
                 configMapKeyRef:
                   name: dataanalysis-config
                   key: JWT_AUDIENCE
+            - name: Credentials__ClientId
+              valueFrom:
+                configMapKeyRef:
+                  name: dataanalysis-config
+                  key: CLIENT_ID
+            - name: Services__AuthService__BaseUrl
+              valueFrom:
+                configMapKeyRef:
+                  name: dataanalysis-config
+                  key: AUTHORITY
+            - name: Services__PlotService__BaseUrl
+              valueFrom:
+                configMapKeyRef:
+                  name: dataanalysis-config
+                  key: PLOT_ENDPOINT
             - name: ENVIRONMENT
               valueFrom:
                 configMapKeyRef:
                   name: dataanalysis-config
                   key: ENVIRONMENT
 
+            - name: ConnectionStrings__MongoConnection
+              valueFrom:
+                secretKeyRef:
+                  name: alert-secrets
+                  key: connectionstring
             - name: ConnectionStrings__SqlConnection
               valueFrom:
                 secretKeyRef:
                   name: dataanalysis-secrets
-                  key: connectionstring
+                  key: connectionstring2
             - name: Jwt__Key
               valueFrom:
                 secretKeyRef:
@@ -70,5 +88,13 @@ spec:
                 secretKeyRef:
                   name: rabbitmq-secrets
                   key: password
-      imagePullSecrets:
-        - name: credentials
+            - name: Service__NewRelic__AccountId
+              valueFrom:
+                secretKeyRef:
+                  name: dataanalysis-secrets
+                  key: accountid
+            - name: Service__NewRelic__ApiKey
+              valueFrom:
+                secretKeyRef:
+                  name: dataanalysis-secrets
+                  key: apikey
